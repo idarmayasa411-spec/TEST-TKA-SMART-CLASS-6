@@ -223,10 +223,12 @@ export function downloadStudentResultPDF(result: ExamResult): void {
   // Garis nama Guru
   doc.setFont('helvetica', 'bold');
   doc.text(CONFIG.GURU, colRight, lineY - 1);
-  doc.line(colRight, lineY, colRight + 48, lineY);
+  const guruWidth = Math.max(50, doc.getTextWidth(CONFIG.GURU) + 2);
+  doc.line(colRight, lineY, colRight + guruWidth, lineY);
   doc.setFont('helvetica', 'normal');
   doc.setFontSize(8.5);
-  doc.text(`NIP. ${CONFIG.NIP_GURU}`, colRight, lineY + 4);
+  const guruNipPrefix = CONFIG.NIP_LABEL_GURU ? `${CONFIG.NIP_LABEL_GURU}. ` : 'NIP. ';
+  doc.text(`${guruNipPrefix}${CONFIG.NIP_GURU}`, colRight, lineY + 4);
 
   // Simpan PDF
   const safeName = (result.nama || 'siswa').replace(/[^a-zA-Z0-9]/g, '_');
@@ -614,7 +616,8 @@ export function downloadResultsRecapPDF(results: ExamResult[]): void {
   // Nama & NIP Kepala Sekolah
   doc.setFont('helvetica', 'bold');
   doc.text(CONFIG.KEPALA_SEKOLAH, colLeftX, sigLineY);
-  doc.line(colLeftX, sigLineY + 1, colLeftX + 50, sigLineY + 1);
+  const ksWidth = Math.max(50, doc.getTextWidth(CONFIG.KEPALA_SEKOLAH) + 2);
+  doc.line(colLeftX, sigLineY + 1, colLeftX + ksWidth, sigLineY + 1);
   doc.setFont('helvetica', 'normal');
   doc.setFontSize(8);
   doc.text(`NIP. ${CONFIG.NIP_KEPALA_SEKOLAH}`, colLeftX, sigLineY + 5);
@@ -623,10 +626,12 @@ export function downloadResultsRecapPDF(results: ExamResult[]): void {
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(8.5);
   doc.text(CONFIG.GURU, colRightX, sigLineY);
-  doc.line(colRightX, sigLineY + 1, colRightX + 50, sigLineY + 1);
+  const rekapGuruWidth = Math.max(50, doc.getTextWidth(CONFIG.GURU) + 2);
+  doc.line(colRightX, sigLineY + 1, colRightX + rekapGuruWidth, sigLineY + 1);
   doc.setFont('helvetica', 'normal');
   doc.setFontSize(8);
-  doc.text(`NIP. ${CONFIG.NIP_GURU}`, colRightX, sigLineY + 5);
+  const guruNipPrefixRekap = CONFIG.NIP_LABEL_GURU ? `${CONFIG.NIP_LABEL_GURU}. ` : 'NIP. ';
+  doc.text(`${guruNipPrefixRekap}${CONFIG.NIP_GURU}`, colRightX, sigLineY + 5);
 
   // --- FOOTER DI SETIAP HALAMAN ---
   const totalPages = doc.getNumberOfPages();

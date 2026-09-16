@@ -220,12 +220,15 @@ export const Stage4TeacherPanel: React.FC<Stage4TeacherPanelProps> = ({
                 Dashboard Panel Guru
               </span>
               <span className="text-xs font-semibold text-slate-500">
-                Kelas {CONFIG.KELAS} • {CONFIG.MATA_PELAJARAN}
+                {CONFIG.SEKOLAH} • Kelas {CONFIG.KELAS} • {CONFIG.MATA_PELAJARAN}
               </span>
             </div>
             <h2 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">
               Rekapitulasi &amp; Pengelolaan Tes Sumatif
             </h2>
+            <p className="text-xs text-slate-500 mt-1">
+              Guru: <span className="font-semibold text-slate-700">{CONFIG.GURU}</span> ({CONFIG.NIP_LABEL_GURU}: {CONFIG.NIP_GURU}) • KS: <span className="font-semibold text-slate-700">{CONFIG.KEPALA_SEKOLAH}</span> (NIP: {CONFIG.NIP_KEPALA_SEKOLAH})
+            </p>
           </div>
 
           {/* Tombol Aksi Cepat Atas */}

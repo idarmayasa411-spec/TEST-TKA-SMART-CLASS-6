@@ -197,6 +197,9 @@ export default function App() {
             Web Developer-susilo fitri yatmoko
           </p>
           <p>
+            {CONFIG.SEKOLAH} | Guru Pengampu: {CONFIG.GURU} ({CONFIG.NIP_LABEL_GURU}: {CONFIG.NIP_GURU})
+          </p>
+          <p>
             Mata Pelajaran: {CONFIG.MATA_PELAJARAN} (Materi: {CONFIG.MATERI}) | Kelas {CONFIG.KELAS} | KKTP: {CONFIG.KKTP}
           </p>
         </div>
