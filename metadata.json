@@ -1,0 +1,8 @@
+{
+  "name": "Latihan Test TKA Smart Class 6",
+  "description": "Aplikasi Tes TKA Matematika Kelas VI SD Negeri 4 Dauhwaru dengan 4 tahap tes, sinkronisasi Google Spreadsheet, unduh PDF naskah \u0026 hasil tes, serta panel guru.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
